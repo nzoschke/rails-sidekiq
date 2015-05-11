@@ -1,9 +1,18 @@
 postgres:
   image: postgres
+redis:
+  image: redis
 web:
   build: .
   command: rails server -b 0.0.0.0
   links:
    - postgres
+   - redis
   ports:
    - "3000:3000"
+worker:
+  build: .
+  command: bundle exec sidekiq
+  links:
+   - postgres
+   - redis

@@ -1,0 +1,9 @@
+postgres:
+  image: postgres
+web:
+  build: .
+  command: rails server -b 0.0.0.0
+  links:
+   - postgres
+  ports:
+   - "3000:3000"

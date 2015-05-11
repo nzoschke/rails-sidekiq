@@ -1,7 +1,7 @@
 postgres:
-  image: postgres
+  image: convox/postgres
 redis:
-  image: redis
+  image: convox/redis
 web:
   build: .
   command: rails server -b 0.0.0.0
